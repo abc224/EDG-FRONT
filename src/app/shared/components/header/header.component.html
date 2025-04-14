@@ -1,0 +1,128 @@
+<!-- TAGLINE START-->
+<div class="tagline bg-light" *ngIf="sliderTopbar == true"></div>
+
+<header
+  id="topnav"
+  class="defaultscroll"
+  (window:scroll)="windowScroll()"
+  [class]="navClass"
+  [ngClass]="{
+    'tagline-height': sliderTopbar == true
+  }"
+>
+  <div class="container">
+    <div>
+      <a class="logo" routerLink="/home" *ngIf="navClass !== 'nav-light'">
+        <img
+          src="assets/images/logo-ager-transparent.png"
+          class="l-dark logo-light-mode"
+          height="50"
+          alt=""
+        />
+        <img
+          src="assets/images/logo-ager-transparent.png"
+          class="logo-dark-mode"
+          height="24"
+          alt=""
+        />
+      </a>
+
+      <a class="logo" routerLink="/home" *ngIf="navClass === 'nav-light'">
+        <img
+          src="assets/images/logo-ager-transparent.png"
+          class="l-dark"
+          height="50"
+          alt=""
+        />
+        <img
+          src="assets/images/sonoya-logo-blanc.png"
+          class="l-light"
+          height="50"
+          alt=""
+        />
+      </a>
+    </div>
+
+    <div class="menu-extras">
+      <div class="menu-item">
+        <!-- Mobile menu toggle-->
+        <a
+          class="navbar-toggle"
+          id="isToggle"
+          (click)="toggleMenu()"
+          [ngClass]="{ open: isCondensed === true }"
+        >
+          <div class="lines">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div id="navigation">
+      <ul class="navigation-menu" [class]="navClass">
+        <li [ngClass]="{ active: dashboard.isActive }">
+          <a
+            routerLink="/dashboard"
+            class="nav-link-ref"
+            routerLinkActive="active"
+            #dashboard="routerLinkActive"
+            >Tableau de bord</a
+          >
+        </li>
+        <li [ngClass]="{ active: map.isActive }">
+          <a
+            routerLink="/interactive-map"
+            class="nav-link-ref"
+            routerLinkActive="active"
+            #map="routerLinkActive"
+            >Carte interactive</a
+          >
+        </li>
+        <li
+          class="has-submenu"
+          [ngClass]="{ active: myProviders.isActive || myClients.isActive }"
+        >
+          <a href="javascript:void(0)" (click)="onMenuClick($event)"
+            >Gestion des données</a
+          ><span class="menu-arrow"></span>
+          <ul class="submenu">
+            <li>
+              <a
+                routerLink="/data-entry"
+                class="nav-link-ref"
+                routerLinkActive="active"
+                #myClients="routerLinkActive"
+                >Saisie des données</a
+              >
+            </li>
+            <li>
+              <a
+                routerLink="/"
+                class="nav-link-ref"
+                routerLinkActive="active"
+                #myProviders="routerLinkActive"
+                >Statistiques & Analyses</a
+              >
+            </li>
+            <li>
+              <a
+                routerLink="/"
+                class="nav-link-ref"
+                routerLinkActive="active"
+                #myProviders="routerLinkActive"
+                >Rapports & Export</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a routerLink="/" class="nav-link-ref">Paramètres</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
