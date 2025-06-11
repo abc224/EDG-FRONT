@@ -2,3 +2,12 @@
   height: 500px;
   width: 100%;
 }
+
+.info.legend {
+  background: white;
+  padding: 8px 12px;
+  font-size: 14px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  line-height: 18px;
+}

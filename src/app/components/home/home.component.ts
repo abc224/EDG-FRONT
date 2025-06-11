@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Chart, ChartData, ChartOptions, ChartType } from 'chart.js';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { ZoneService } from '../../services/zone.service';
+import { Zone } from '../../models/zone';
 
 @Component({
   selector: 'app-home',
@@ -9,17 +11,22 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class HomeComponent {
   date!: Date;
+  stats = {
+    total: 0,
+    electrified: 0,
+    notElectrified: 0,
+  };
 
   // Labels du donut
   public donutLabels: string[] = [
     'Conakry',
-    'Boké',
     'Kindia',
-    'Mamou',
-    'Labé',
     'Kankan',
-    'Faranah',
+    'Labé',
+    'Mamou',
     'Nzérékoré',
+    'Faranah',
+    'Boké',
   ];
 
   // Données à afficher, avec la structure correcte pour 'datasets'
@@ -65,11 +72,32 @@ export class HomeComponent {
       },
     },
   };
-  constructor() {
+  tauxCouverture: number = 0;
+  constructor(private zoneService: ZoneService) {
     setInterval(() => {
       this.date = new Date();
     }, 1);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.zoneStats();
+  }
+  zoneStats() {
+    this.zoneService.findAll().subscribe(
+      (res: Zone[]) => {
+        const total = res.length;
+        const electrified = res.filter(
+          (z) => z.statut === 'electrified'
+        ).length;
+        const notElectrified = total - electrified;
+        const tauxCouverture = total > 0 ? (electrified / total) * 100 : 0;
+
+        this.stats = { total, electrified, notElectrified };
+        this.tauxCouverture = tauxCouverture;
+      },
+      (err) => {
+        console.error('Erreur lors de la récupération des zones :', err);
+      }
+    );
+  }
 }

@@ -3,3 +3,30 @@
 @import "assets/css/bootstrap.min.css";
 @import "ngx-owl-carousel-o/lib/styles/scss/owl.carousel";
 @import "ngx-owl-carousel-o/lib/styles/scss/owl.theme.default";
+@import "@ng-select/ng-select/themes/default.theme.css";
+
+/* En-tête du tableau */
+table.dataTable .thead th {
+  background-color: #e9e9e9; /* Couleur de fond */
+  color: black; /* Couleur du texte */
+  font-weight: bold;
+  padding: 10px;
+}
+
+/* Aligner le champ de recherche à droite */
+.dataTables_wrapper .dataTables_filter {
+  float: right; /* Aligner à droite */
+  text-align: right; /* Aligner le texte à droite */
+}
+
+/* Aligner le sélecteur "10 entries per page" à gauche */
+.dataTables_wrapper .dataTables_length {
+  float: left; /* Aligner à gauche */
+  text-align: left; /* Aligner le texte à gauche */
+}
+
+table.table tr th,
+table.table tr td {
+  border-color: #e9e9e9;
+  vertical-align: middle;
+}

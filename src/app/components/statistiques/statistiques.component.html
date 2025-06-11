@@ -1,0 +1,71 @@
+<div class="container mt-100">
+  <div class="card">
+    <h3 class="text-white bg-primary p-2 rounded w-100">
+      Statistiques importantes
+    </h3>
+
+    <div class="row text-center my-2 mb-5">
+      <div class="col-md-4 stretch-card grid-margin">
+        <div class="card bg-light shadow rounded">
+          <h2 class="text-center">{{ stations }}</h2>
+          <h4 class="font-weight-normal text-center">Stations électriques</h4>
+        </div>
+      </div>
+      <div class="col-md-4 stretch-card grid-margin">
+        <div class="card bg-light shadow rounded">
+          <h2 class="text-center">{{ transformateurs }}</h2>
+          <h4 class="font-weight-normal text-center">Transformateurs</h4>
+        </div>
+      </div>
+      <div class="col-md-4 stretch-card grid-margin">
+        <div class="card bg-light shadow rounded">
+          <h2 class="text-center">{{ villages }}</h2>
+          <h4 class="font-weight-normal text-center">Villages électrifiés</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 d-flex flex-column align-items-center">
+        <div style="width: 250px">
+          <canvas
+            baseChart
+            [data]="donutData"
+            [type]="'doughnut'"
+            [options]="donutOptions"
+          >
+          </canvas>
+        </div>
+        <p class="mt-2">Couverture nationale</p>
+      </div>
+
+      <div class="col-md-6">
+        <div style="height: 250px">
+          <canvas
+            baseChart
+            [data]="lineChartData"
+            [options]="lineChartOptions"
+            [type]="'line'"
+          >
+          </canvas>
+        </div>
+        <p class="mt-2">Évolution de l'électrification rurale</p>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <div style="height: 300px">
+          <canvas
+            baseChart
+            [data]="barChartData"
+            [options]="barChartOptions"
+            [type]="'bar'"
+          >
+          </canvas>
+        </div>
+        <p class="mt-2 text-center">Taux de couverture par région</p>
+      </div>
+    </div>
+  </div>
+</div>

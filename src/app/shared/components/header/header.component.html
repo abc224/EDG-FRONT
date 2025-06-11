@@ -83,7 +83,12 @@
         </li>
         <li
           class="has-submenu"
-          [ngClass]="{ active: myProviders.isActive || myClients.isActive }"
+          [ngClass]="{
+            active:
+              statistiques.isActive ||
+              geographicData.isActive ||
+              rapport.isActive
+          }"
         >
           <a href="javascript:void(0)" (click)="onMenuClick($event)"
             >Gestion des données</a
@@ -94,16 +99,25 @@
                 routerLink="/data-entry"
                 class="nav-link-ref"
                 routerLinkActive="active"
-                #myClients="routerLinkActive"
-                >Saisie des données</a
+                #geographicData="routerLinkActive"
+                >Saisie des données geographiques</a
               >
             </li>
             <li>
               <a
-                routerLink="/"
+                routerLink="/data-entry"
                 class="nav-link-ref"
                 routerLinkActive="active"
-                #myProviders="routerLinkActive"
+                #myClients="routerLinkActive"
+                >Saisie des données d'electrification</a
+              >
+            </li>
+            <li>
+              <a
+                routerLink="/statistiques"
+                class="nav-link-ref"
+                routerLinkActive="active"
+                #statistiques="routerLinkActive"
                 >Statistiques & Analyses</a
               >
             </li>
@@ -112,7 +126,7 @@
                 routerLink="/"
                 class="nav-link-ref"
                 routerLinkActive="active"
-                #myProviders="routerLinkActive"
+                #rapport="routerLinkActive"
                 >Rapports & Export</a
               >
             </li>
@@ -120,7 +134,7 @@
         </li>
 
         <li>
-          <a routerLink="/" class="nav-link-ref">Paramètres</a>
+          <a routerLink="/parametres" class="nav-link-ref">Paramètres</a>
         </li>
       </ul>
     </div>
