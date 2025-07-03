@@ -12,30 +12,30 @@
 >
   <div class="container">
     <div>
-      <a class="logo" routerLink="/home" *ngIf="navClass !== 'nav-light'">
+      <a class="logo" routerLink="/dashboard" *ngIf="navClass !== 'nav-light'">
         <img
-          src="assets/images/logo-ager-transparent.png"
+          src="assets/images/logo-edg.png"
           class="l-dark logo-light-mode"
-          height="50"
+          height="80"
           alt=""
         />
         <img
-          src="assets/images/logo-ager-transparent.png"
+          src="assets/images/logo-edg.png"
           class="logo-dark-mode"
           height="24"
           alt=""
         />
       </a>
 
-      <a class="logo" routerLink="/home" *ngIf="navClass === 'nav-light'">
+      <a class="logo" routerLink="/dashboard" *ngIf="navClass === 'nav-light'">
         <img
-          src="assets/images/logo-ager-transparent.png"
+          src="assets/images/logo-edg.png"
           class="l-dark"
           height="50"
           alt=""
         />
         <img
-          src="assets/images/sonoya-logo-blanc.png"
+          src="assets/images/logo-edg.png"
           class="l-light"
           height="50"
           alt=""
@@ -87,7 +87,7 @@
             active:
               statistiques.isActive ||
               geographicData.isActive ||
-              rapport.isActive
+              electricData.isActive
           }"
         >
           <a href="javascript:void(0)" (click)="onMenuClick($event)"
@@ -105,11 +105,11 @@
             </li>
             <li>
               <a
-                routerLink="/data-entry"
+                routerLink="/electric-data-entry"
                 class="nav-link-ref"
                 routerLinkActive="active"
-                #myClients="routerLinkActive"
-                >Saisie des données d'electrification</a
+                #electricData="routerLinkActive"
+                >Projet et données d'electrification</a
               >
             </li>
             <li>
@@ -135,6 +135,14 @@
 
         <li>
           <a routerLink="/parametres" class="nav-link-ref">Paramètres</a>
+        </li>
+        <li class="mt-25">
+          <img
+            src="assets/images/branding.png"
+            class="l-light"
+            height="50"
+            alt=""
+          />
         </li>
       </ul>
     </div>

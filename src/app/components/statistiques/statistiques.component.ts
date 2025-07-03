@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartData, ChartOptions } from 'chart.js';
+import { StationService } from '../../services/station.service';
+import { Station } from '../../models/station';
 
 @Component({
   selector: 'app-statistiques',
@@ -7,8 +9,8 @@ import { ChartData, ChartOptions } from 'chart.js';
   styleUrl: './statistiques.component.css',
 })
 export class StatistiquesComponent implements OnInit {
-  stations = 58;
-  transformateurs = 142;
+  stations = 0;
+  transformateurs = 5;
   villages = 260;
 
   donutData: ChartData<'doughnut', number[], string> = {
@@ -82,7 +84,20 @@ export class StatistiquesComponent implements OnInit {
     },
   };
 
-  constructor() {}
+  getAllStations() {
+    this.stationService.findAll().subscribe(
+      (response: Station[]) => {
+        this.stations = response.length;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 
-  ngOnInit(): void {}
+  constructor(private stationService: StationService) {}
+
+  ngOnInit(): void {
+    this.getAllStations();
+  }
 }

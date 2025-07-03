@@ -38,7 +38,7 @@
                   *ngIf="prefecturesIsLoading"
                 >
                   <div class="spinner-border" role="status">
-                    <span class="sr-only">Loading...</span>
+                    <span class="sr-only"></span>
                   </div>
                 </div>
                 <tr *ngFor="let prefecture of prefectures; let i = index">
@@ -50,7 +50,7 @@
                   <td class="text-center">
                     <a
                       class="btn btn-icon btn-warning me-1"
-                      [routerLink]="['/edit-prefecture', prefecture.id]"
+                      (click)="open(content, prefecture.id)"
                       ><i-feather name="edit" class="fea icon-sm"></i-feather
                     ></a>
 

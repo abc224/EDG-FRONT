@@ -2,3 +2,19 @@
   padding: 0px;
   padding-top: 25px;
 }
+
+.bg-tauxSup90 {
+  background-color: #00ab32 !important;
+}
+
+.bg-tauxSup70 {
+  background-color: #fff300 !important;
+}
+
+.bg-tauxSup50 {
+  background-color: #ffa500 !important;
+}
+
+.bg-tauxInf50 {
+  background-color: #ff0000 !important;
+}

@@ -102,7 +102,7 @@ export class ListeSousPrefecturesComponent implements OnInit {
     if (prefecture && prefecture.region && prefecture.region.name) {
       return prefecture.region.name;
     } else {
-      return 'Région inconnue';
+      return 'Région';
     }
   }
 

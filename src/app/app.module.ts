@@ -30,7 +30,15 @@ import { ListeVillagesComponent } from './components/liste-villages/liste-villag
 import { ParametresComponent } from './components/parametres/parametres.component';
 import { SourceFinancementComponent } from './components/source-financement/source-financement.component';
 import { ElectricDataEntryComponent } from './components/electric-data-entry/electric-data-entry.component';
-
+import { ListeHtaComponent } from './components/liste-hta/liste-hta.component';
+import { ListeEquipementsComponent } from './components/liste-equipements/liste-equipements.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +59,8 @@ import { ElectricDataEntryComponent } from './components/electric-data-entry/ele
     ParametresComponent,
     SourceFinancementComponent,
     ElectricDataEntryComponent,
+    ListeHtaComponent,
+    ListeEquipementsComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +80,13 @@ import { ElectricDataEntryComponent } from './components/electric-data-entry/ele
     ReactiveFormsModule,
     FormsModule,
     NgSelectModule,
+    MatToolbarModule,
+    MatListModule,
+    MatCardModule,
+    MatDividerModule,
+    MatStepperModule,
+    MatIconModule,
+    MatButtonModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   bootstrap: [AppComponent],

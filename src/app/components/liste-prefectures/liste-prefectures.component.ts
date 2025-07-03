@@ -42,7 +42,24 @@ export class ListePrefecturesComponent implements OnInit {
     this.getAllPrefectures();
   }
 
-  open(content: any) {
+  // open(content: any) {
+  //   this.modalService.open(content, { centered: true });
+  // }
+
+  open(content: any, idPrefecture?: number) {
+    if (idPrefecture !== undefined) {
+      this.prefectureService.findById(idPrefecture).subscribe(
+        (res: any) => {
+          this.prefecture = res;
+          this.prefectureForm.get('name')?.setValue(this.prefecture.name);
+          this.modalTitle = "Modification d'une prefecture";
+        },
+        (err) => {
+          alert('erreur');
+        }
+      );
+    }
+
     this.modalService.open(content, { centered: true });
   }
 

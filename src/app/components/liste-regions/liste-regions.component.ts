@@ -29,7 +29,20 @@ export class ListeRegionsComponent implements OnInit {
     this.getAllRegions();
   }
   regionsIsLoading = true;
-  open(content: any) {
+  open(content: any, idRegion?: number) {
+    if (idRegion !== undefined) {
+      this.regionService.findById(idRegion).subscribe(
+        (res: any) => {
+          this.region = res;
+          this.regionForm.get('name')?.setValue(this.region.name);
+          this.modalTitle = "Modification d'une region";
+        },
+        (err) => {
+          alert('erreur');
+        }
+      );
+    }
+
     this.modalService.open(content, { centered: true });
   }
 

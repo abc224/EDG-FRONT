@@ -6,7 +6,7 @@
           <span class="page-title-icon text-primary mr-2">
             <i class="mdi mdi-map-outline"></i>
           </span>
-          Cartographie des installations électriques
+          Cartographie d'électrification
         </h3>
       </div>
       <br />
@@ -37,6 +37,7 @@
                     formControlName="region"
                     [searchFn]="customSearchFn"
                     required
+                    (change)="filterPrefectures()"
                   >
                   </ng-select>
                 </div>
@@ -55,12 +56,13 @@
                     formControlName="prefecture"
                     [searchFn]="customSearchFn"
                     required
+                    (change)="filterSousPrefectures()"
                   >
                   </ng-select>
                 </div>
               </div>
               <div class="mb-3">
-                <label class="form-label">Sous prefecture</label>
+                <label class="form-label">Commune urbaine</label>
                 <div>
                   <ng-select
                     [items]="filteredSousPrefectures"
@@ -72,6 +74,7 @@
                     class="w-100"
                     formControlName="sousPrefecture"
                     [searchFn]="customSearchFn"
+                    (change)="filterQuartiers()"
                     required
                   >
                   </ng-select>
@@ -96,22 +99,7 @@
                   </ng-select>
                 </div>
               </div>
-              <div class="mb-2">
-                <div class="w-100">
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      checked
-                      value=""
-                      id="flexCheckDefault1"
-                    />
-                    <label class="form-check-label" for="flexCheckDefault1"
-                      >Zone électrifiée?</label
-                    >
-                  </div>
-                </div>
-              </div>
+
               <button
                 id="filter"
                 class="col-md-12 mt-3 mb-3 btn btn btn-outline-primary"
@@ -164,7 +152,7 @@
             />
           </div>
           <div class="form-group">
-            <label>Sous-préfecture</label>
+            <label>Commune urbaine</label>
             <input
               type="text"
               class="form-control"
@@ -174,20 +162,26 @@
             />
           </div>
           <div class="form-group">
-            <div class="w-100">
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  [(ngModel)]="electrificationStatus"
-                  id="flexCheckDefault1"
-                  name="electrificationStatus"
-                />
-                <label class="form-check-label" for="flexCheckDefault1"
-                  >Zone électrifiée?</label
-                >
-              </div>
-            </div>
+            <label>Heures disponibles</label>
+            <input
+              type="number"
+              max="24"
+              min="0"
+              class="form-control"
+              [(ngModel)]="selectedHeuresDisponibles"
+              (ngModelChange)="updateTaux()"
+              name="selectedHeuresDisponibles"
+            />
+          </div>
+          <div class="form-group">
+            <label>Taux d'electrification</label>
+            <input
+              type="text"
+              class="form-control"
+              [value]="selectedTauxElectrification + ' %'"
+              name="selectedTauxElectrification"
+              readonly
+            />
           </div>
         </form>
       </div>

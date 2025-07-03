@@ -5,6 +5,8 @@ export interface Zone {
   longitude: number;
   latitude: number;
   type: string;
+  heuresDisponibles: number;
+  tauxElectrification: number;
   createdAt: Date;
   updatedAt: Date;
 }

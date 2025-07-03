@@ -14,50 +14,51 @@
       </div>
       <div class="row">
         <div class="col-md-3 stretch-card grid-margin mb-2 mb-sm-0">
-          <div class="card bg-info text-white shadow rounded">
+          <div class="card bg-tauxSup90 text-white shadow rounded">
             <div>
               <div class="text-center">
-                <i class="mdi mdi-database mdi-48px"></i>
+                <i class="mdi mdi-flash mdi-48px"></i>
+                <i class="mdi mdi-check-circle mdi-48px"></i>
               </div>
-              <h4 class="font-weight-normal text-center">Zones totales</h4>
-              <h2 class="text-center">{{ stats.total }}</h2>
+              <h4 class="font-weight-normal text-center">
+                Excellente couverture
+              </h4>
+              <h2 class="text-center">{{ stats.tauxSup90 }}</h2>
             </div>
           </div>
         </div>
         <div class="col-md-3 stretch-card grid-margin mb-2 mb-sm-0">
-          <div class="card bg-primary text-white">
+          <div class="card bg-tauxSup70 text-white">
             <div>
               <div class="text-center">
-                <i class="mdi mdi-checkbox-marked-circle-outline mdi-48px"></i>
+                <i class="mdi mdi-flash mdi-48px"></i>
               </div>
-              <h4 class="font-weight-normal text-center">Zones couvertes</h4>
-              <h2 class="text-center">{{ stats.electrified }}</h2>
+              <h4 class="font-weight-normal text-center">Bonne couverture</h4>
+              <h2 class="text-center">{{ stats.tauxSup70 }}</h2>
             </div>
           </div>
         </div>
 
         <div class="col-md-3 stretch-card grid-margin mb-2 mb-sm-0">
-          <div class="card bg-danger text-white">
+          <div class="card bg-tauxSup50 text-white">
             <div>
               <div class="text-center">
-                <i class="mdi mdi-close-circle-outline mdi-48px"></i>
+                <i class="mdi mdi-flash-alert mdi-48px"></i>
               </div>
-              <h4 class="font-weight-normal text-center">
-                Zones non couvertes
-              </h4>
-              <h2 class="text-center">{{ stats.notElectrified }}</h2>
+              <h4 class="font-weight-normal text-center">Couverture moyenne</h4>
+              <h2 class="text-center">{{ stats.tauxSup50 }}</h2>
             </div>
           </div>
         </div>
         <div class="col-md-3 stretch-card grid-margin mb-2 mb-sm-0">
-          <div class="card bg-warning text-white">
+          <div class="card bg-tauxInf50 text-white">
             <div>
               <div class="text-center">
-                <i class="mdi mdi-percent mdi-48px"></i>
+                <i class="mdi mdi-flash-off mdi-48px"></i>
               </div>
-              <h4 class="font-weight-normal text-center">Taux de couverture</h4>
+              <h4 class="font-weight-normal text-center">Faible couverture</h4>
               <h2 class="text-center">
-                {{ tauxCouverture | number : "1.1-2" }}
+                <h2 class="text-center">{{ stats.tauxInf50 }}</h2>
               </h2>
             </div>
           </div>
